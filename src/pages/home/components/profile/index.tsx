@@ -12,11 +12,11 @@ import {
   FaUserFriends,
   FaExternalLinkAlt,
 } from 'react-icons/fa'
-import { useGithubContext } from 'contexts/githubContext'
+import { useGithubUserContext } from 'contexts/githubUserContext'
 import { Loader } from 'components/skeletonLoading/styles'
 
 export function Profile() {
-  const { user, loading } = useGithubContext()
+  const { user, loading } = useGithubUserContext()
 
   if (loading) {
     return (

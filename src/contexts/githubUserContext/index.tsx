@@ -1,4 +1,4 @@
-import { githubApi } from 'lib/axios'
+import { githubUserApi } from 'lib/axios'
 import {
   createContext,
   useCallback,
@@ -7,16 +7,16 @@ import {
   useState,
 } from 'react'
 import type {
-  GithubContextProps,
-  GithubContextProviderProps,
+  GithubUserContextProps,
+  GithubUserContextProviderProps,
   User,
 } from './types'
 
-export const GithubContext = createContext({} as GithubContextProps)
+export const GithubUserContext = createContext({} as GithubUserContextProps)
 
-export function GithubContextProvider({
+export function GithubUserContextProvider({
   children,
-}: GithubContextProviderProps) {
+}: GithubUserContextProviderProps) {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(false)
 
@@ -24,7 +24,7 @@ export function GithubContextProvider({
     setLoading(true)
 
     try {
-      const response = await githubApi.get(`/users/${username}`)
+      const response = await githubUserApi.get(`/users/${username}`)
 
       setUser(response.data)
     } catch (error) {
@@ -39,23 +39,23 @@ export function GithubContextProvider({
   }, [handleGetUserInfos])
 
   return (
-    <GithubContext.Provider
+    <GithubUserContext.Provider
       value={{
         user,
         loading,
       }}
     >
       {children}
-    </GithubContext.Provider>
+    </GithubUserContext.Provider>
   )
 }
 
-export function useGithubContext() {
-  const context = useContext(GithubContext)
+export function useGithubUserContext() {
+  const context = useContext(GithubUserContext)
 
   if (!context) {
     throw new Error(
-      'useGithubContext must be used within a GithubContextProvider',
+      'useGithubUserContext must be used within a GithubUserContextProvider',
     )
   }
 

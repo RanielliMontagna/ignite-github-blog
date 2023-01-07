@@ -35,11 +35,11 @@ export interface User {
   updated_at: string
 }
 
-export interface GithubContextProps {
+export interface GithubUserContextProps {
   user: User | null
   loading: boolean
 }
 
-export interface GithubContextProviderProps {
+export interface GithubUserContextProviderProps {
   children: ReactNode
 }

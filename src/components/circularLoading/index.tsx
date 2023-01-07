@@ -1,5 +1,5 @@
 import { Loader } from './styles'
 
-export function SkeletonLoading() {
+export function CircularLoading() {
   return <Loader />
 }
