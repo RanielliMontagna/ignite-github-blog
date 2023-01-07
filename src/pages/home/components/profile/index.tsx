@@ -1,8 +1,17 @@
 import {
+  HeaderContainer,
   ImageContainer,
+  InfoContainer,
   ProfileContainer,
   ProfileInfoContainer,
 } from './styles'
+
+import {
+  FaGithub,
+  FaBuilding,
+  FaUserFriends,
+  FaExternalLinkAlt,
+} from 'react-icons/fa'
 
 export function Profile() {
   return (
@@ -15,13 +24,31 @@ export function Profile() {
       </ImageContainer>
       <ProfileInfoContainer>
         <div>
-          <h1>Ranielli Montagna</h1>
-          <a>Github</a>
+          <HeaderContainer>
+            <h1>Ranielli Montagna</h1>
+            <a>
+              Github <FaExternalLinkAlt />
+            </a>
+          </HeaderContainer>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quo
+            odit sequi ut consequuntur qui reprehenderit!
+          </p>
         </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quo
-          odit sequi ut consequuntur qui reprehenderit!
-        </p>
+        <InfoContainer>
+          <div>
+            <FaGithub />
+            <p>rannimontagna</p>
+          </div>
+          <div>
+            <FaBuilding />
+            <p>SB Sistemas</p>
+          </div>
+          <div>
+            <FaUserFriends />
+            <p>32 seguidores</p>
+          </div>
+        </InfoContainer>
       </ProfileInfoContainer>
     </ProfileContainer>
   )

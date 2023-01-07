@@ -1,5 +1,3 @@
-import type { Theme } from '@emotion/react'
-
 export const defaultTheme = {
   colors: {
     blue: '#3294F8',

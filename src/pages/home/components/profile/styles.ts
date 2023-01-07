@@ -22,8 +22,53 @@ export const ImageContainer = styled.div`
 `
 
 export const ProfileInfoContainer = styled.div`
-  div {
+  display: grid;
+  gap: ${toRem(24)};
+
+  > div:first-of-type {
+    display: grid;
+    gap: ${toRem(8)};
+  }
+
+  h1 {
+    font-size: ${toRem(24)};
+  }
+`
+
+export const HeaderContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: ${toRem(8)};
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: ${toRem(12)};
+
+  > a {
+    color: ${({ theme }) => theme.colors.blue};
+
+    svg {
+      width: ${toRem(12)};
+      height: ${toRem(12)};
+    }
+
+    cursor: pointer;
+  }
+`
+
+export const InfoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${toRem(24)};
+
+  > div {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: ${toRem(8)};
+  }
+
+  svg {
+    width: ${toRem(18)};
+    height: ${toRem(18)};
+    color: ${({ theme }) => theme.colors['base-label']};
   }
 `
