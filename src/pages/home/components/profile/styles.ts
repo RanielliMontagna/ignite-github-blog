@@ -2,15 +2,20 @@ import styled from '@emotion/styled'
 import { toRem } from 'utils/toRem'
 
 export const ProfileContainer = styled.div`
+  position: relative;
   background: ${({ theme }) => theme.colors['base-profile']};
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
 
-  margin-top: -${toRem(32)};
+  margin-top: -${toRem(96)};
   padding: ${toRem(32)} ${toRem(40)};
 
   display: flex;
   align-items: center;
   gap: ${toRem(32)};
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 export const ImageContainer = styled.div`
@@ -28,6 +33,10 @@ export const ProfileInfoContainer = styled.div`
   > div:first-of-type {
     display: grid;
     gap: ${toRem(8)};
+
+    @media (max-width: 600px) {
+      text-align: center;
+    }
   }
 
   h1 {
@@ -53,12 +62,21 @@ export const HeaderContainer = styled.div`
 
     cursor: pointer;
   }
+
+  @media (max-width: 600px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 `
 
 export const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   gap: ${toRem(24)};
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 
   > div {
     display: flex;
