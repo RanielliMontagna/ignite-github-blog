@@ -53,6 +53,8 @@ export const HeaderContainer = styled.div`
   font-size: ${toRem(12)};
 
   > a {
+    text-decoration: none;
+
     color: ${({ theme }) => theme.colors.blue};
 
     svg {

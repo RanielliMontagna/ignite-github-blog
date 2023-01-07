@@ -12,41 +12,47 @@ import {
   FaUserFriends,
   FaExternalLinkAlt,
 } from 'react-icons/fa'
+import { useGithubContext } from 'contexts/githubContext'
+import { Loader } from 'components/skeletonLoading/styles'
 
 export function Profile() {
+  const { user, loading } = useGithubContext()
+
+  if (loading) {
+    return (
+      <ProfileContainer>
+        <Loader />
+      </ProfileContainer>
+    )
+  }
+
   return (
     <ProfileContainer>
       <ImageContainer>
-        <img
-          src="https://github.com/RanielliMontagna.png"
-          alt="Rani Montagna"
-        />
+        <img src={user?.avatar_url} alt={user?.name} />
       </ImageContainer>
       <ProfileInfoContainer>
         <div>
           <HeaderContainer>
-            <h1>Ranielli Montagna</h1>
-            <a>
+            <h1>{user?.name}</h1>
+            <a href={user?.html_url} target="_blank" rel="noreferrer">
               Github <FaExternalLinkAlt />
             </a>
           </HeaderContainer>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quo
-            odit sequi ut consequuntur qui reprehenderit!
-          </p>
+          <p>{user?.bio}</p>
         </div>
         <InfoContainer>
           <div>
             <FaGithub />
-            <p>rannimontagna</p>
+            <p>{user?.public_repos} repositórios</p>
           </div>
           <div>
             <FaBuilding />
-            <p>SB Sistemas</p>
+            <p>{user?.company}</p>
           </div>
           <div>
             <FaUserFriends />
-            <p>32 seguidores</p>
+            <p>{user?.followers} seguidores</p>
           </div>
         </InfoContainer>
       </ProfileInfoContainer>
