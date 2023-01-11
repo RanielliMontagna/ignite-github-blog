@@ -8,8 +8,7 @@ export const githubUserApi = axios.create({
 })
 
 export const githubRepoApi = axios.create({
-  baseURL:
-    'https://api.github.com/repos/RanielliMontagna/ignite-github-blog/issues',
+  baseURL: 'https://api.github.com/search/issues',
   headers: {
     Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`,
   },

@@ -20,13 +20,17 @@ export function GithubIssuesContextProvider({
   const [issues, setIssues] = useState<Issue[] | null>(null)
   const [loading, setLoading] = useState(false)
 
-  const handleGetIssuesInfos = useCallback(async () => {
+  const fetchIssuesInfos = useCallback(async (query: string = '') => {
     setLoading(true)
 
     try {
-      const response = await githubRepoApi.get('')
+      const response = await githubRepoApi.get('', {
+        params: {
+          q: query + 'is:issue repo:RanielliMontagna/ignite-github-blog',
+        },
+      })
 
-      setIssues(response.data)
+      setIssues(response.data?.items)
     } catch (error) {
       console.log(error)
     } finally {
@@ -35,14 +39,15 @@ export function GithubIssuesContextProvider({
   }, [])
 
   useEffect(() => {
-    handleGetIssuesInfos()
-  }, [handleGetIssuesInfos])
+    fetchIssuesInfos()
+  }, [fetchIssuesInfos])
 
   return (
     <GithubIssuesContext.Provider
       value={{
         issues,
         loading,
+        fetchIssuesInfos,
       }}
     >
       {children}

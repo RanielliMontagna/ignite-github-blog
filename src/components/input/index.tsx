@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { SInput } from './styles'
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-export function Input(props: InputProps) {
+function Input(props: InputProps, ref: any) {
   return <SInput {...props} />
 }
+
+export default forwardRef(Input)

@@ -63,11 +63,13 @@ export interface Issue {
   timeline_url: string
   performed_via_github_app: null
   state_reason: null
+  score: number
 }
 
 export interface GithubIssuesContextProps {
   issues: Issue[] | null
   loading: boolean
+  fetchIssuesInfos: (query?: string) => void
 }
 
 export interface GithubIssuesContextProviderProps {
