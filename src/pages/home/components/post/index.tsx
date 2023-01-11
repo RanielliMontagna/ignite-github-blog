@@ -2,6 +2,7 @@ import { PostContainer } from './styles'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import ptBr from 'dayjs/locale/pt-br'
+import { useNavigate } from 'react-router-dom'
 
 dayjs.extend(relativeTime)
 dayjs.locale(ptBr)
@@ -14,8 +15,10 @@ interface PostProps {
 }
 
 export function Post(props: PostProps) {
+  const _navigate = useNavigate()
+
   return (
-    <PostContainer>
+    <PostContainer onClick={() => _navigate(`/issue/${props.id}`)}>
       <div>
         <h2>{props.title}</h2>
         <span>{dayjs(props.updated_at).fromNow()}</span>

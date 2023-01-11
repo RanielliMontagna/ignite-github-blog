@@ -31,4 +31,11 @@ export const PostContainer = styled.div`
     color: ${({ theme }) => theme.colors['base-text']};
     font-size: ${toRem(16)};
   }
+
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    box-shadow: inset 0 0 0 2px ${({ theme }) => theme.colors['base-label']};
+  }
 `
