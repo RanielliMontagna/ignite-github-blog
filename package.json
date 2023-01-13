@@ -21,7 +21,9 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.41.5",
     "react-icons": "^4.7.1",
+    "react-markdown": "^8.0.4",
     "react-router-dom": "^6.6.1",
+    "remark-gfm": "^3.0.1",
     "throttle-debounce": "^5.0.0",
     "vite-tsconfig-paths": "^4.0.3",
     "zod": "^3.20.2"
